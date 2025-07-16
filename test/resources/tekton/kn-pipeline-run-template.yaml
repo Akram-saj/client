@@ -21,7 +21,7 @@ spec:
     name: buildah-build-kn-create
   workspaces:
   - name: shared-workspace
-    persistentvolumeclaim:
+    persistentVolumeClaim:
       claimName: buildah-source-pvc
   params:
     - name: IMAGE_FORMAT
