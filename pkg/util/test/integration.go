@@ -256,16 +256,14 @@ func checkServiceAccount(serviceaccount string, namespace string, maxRetries int
 	retries := 0
 	for retries < MaxRetries {
 		output, _ := Kubectl{}.Run("get", "serviceaccount", serviceaccount, "-n", namespace)
-                fmt.Println("hello",output)
+                
 		// check for service account created
 		if strings.Contains(output, serviceaccount) {
-                        fmt.Println("Hello-123",output)
 			return true
 		}
 
 		retries++
 		time.Sleep(RetrySleepDuration)
 	}
-        fmt.Println("Hello-abc",output)
 	return false
 }
